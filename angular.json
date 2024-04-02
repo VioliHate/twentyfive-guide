@@ -24,6 +24,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": [
+              "highlight.js"
+            ],
             "outputPath": "dist/twentyfive-guide",
             "index": "src/index.html",
             "browser": "src/main.ts",

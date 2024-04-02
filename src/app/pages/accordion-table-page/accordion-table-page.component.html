@@ -1,0 +1,217 @@
+<nav ngbNav #nav="ngbNav" class="nav-tabs btn-group">
+  <ng-container ngbNavItem>
+    <button ngbNavLink>Panoramica</button>
+    <ng-template ngbNavContent>
+      <p>
+        Il componente Accordion table serve per avere pronto all'uso una tabella espandibile in Angular.
+        Questa tabella consente di visualizzare in dettaglio le informazioni di ciascuna riga facendo clic su di esse.
+      </p>
+      <h5>Caratteristiche Principali</h5>
+      <ul>
+        <li><span class="fw-bold">Espansione delle Righe</span>: le righe della tabella possono essere espandibili per
+          visualizzare ulteriori dettagli.
+        </li>
+        <li><span class="fw-bold">Espansione delle Righe</span>: è possibile personalizzare le intestazioni delle
+          colonne e i dettagli visualizzati nelle righe espandibili.
+        </li>
+        <li><span class="fw-bold">Espansione delle Righe</span>: la tabella supporta la paginazione per la gestione di
+          grandi set di dati.
+        </li>
+        <li><span class="fw-bold">Espansione delle Righe</span>: è possibile ordinare le righe della tabella in base a
+          specifiche colonne
+        </li>
+      </ul>
+
+      <h5>Come Si utilizza</h5>
+      <div class="mb-2">
+        <span> per utilizzare il componente basta installare la libreria con il comando: </span>
+      </div>
+      <div>
+        <pre><code [highlight]="installLib" class="mt-3 border rounded w-auto" language="node-repl"></code></pre>
+      </div>
+      <div class="mb-2">
+        <span> importare il modulo <u>app.module.ts</u> come segue: </span>
+        <div>
+          <pre><code [highlight]="importModule" class="mt-3 border rounded w-auto" language="typescript"></code></pre>
+        </div>
+      </div>
+      <div class="mb-2">
+        <span> il tag per richiamare il componente è il seguente: </span>
+        <div>
+          <pre><code [highlight]="tagHtmlComponent" class="mt-3 border rounded w-auto" language="html"></code></pre>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <button ngbNavLink>API</button>
+    <ng-template ngbNavContent>
+      <h3>API reference</h3>
+      <div class="mb-2">
+        <span> importare il modulo nell' <u>app.module.ts</u> come segue: </span>
+        <div>
+          <pre><code [highlight]="importModule" class="mt-3 border rounded w-auto" language="typescript"></code></pre>
+        </div>
+        <h5>Proprietà</h5>
+        <hr>
+        <div class="container">
+          <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+              <th scope="col" class="fw-bold">Nome</th>
+              <th scope="col" class="fw-bold">Descrizione</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><code>&#64;Input() data: any[]</code></td>
+              <td>Array contenente i dati da visualizzare nella tabella.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() dataDetails: any[]</code></td>
+              <td>Array contenente i dettagli aggiuntivi associati ai dati principali.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() headers: Header[]</code></td>
+              <td>Array di oggetti Header, che contiene gli attributi e le intestazioni di colonna da visualizzare nella
+                tabella.
+              </td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() extras: Header[]</code></td>
+              <td>Array di oggetti Header, che contiene informazioni aggiuntive da visualizzare nella tabella.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() templateRef: TemplateRef&lt;any&gt;</code></td>
+              <td>Riferimento al template utilizzato per costruire la visualizzazione grafica dei dettagli della
+                tabella.
+              </td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() singleOpen: boolean</code></td>
+              <td>Booleano che specifica se è consentito aprire solo un dettaglio alla volta.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() isSortable: boolean</code></td>
+              <td>Booleano che specifica se è consentito ordinare la tabella cliccando sull'intestazione della
+                colonna.
+              </td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() maxSize: number</code></td>
+              <td>Numero massimo di pagine da visualizzare nella paginazione.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() pageSize: number</code></td>
+              <td>Numero di elementi per pagina nella tabella.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() collectionSize: any</code></td>
+              <td>Numero totale di elementi nella raccolta di dati.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() page: number</code></td>
+              <td>Numero di pagina corrente.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() disabled: boolean</code></td>
+              <td>Booleano che specifica se la paginazione è disabilitata.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() boundaryLinks: boolean</code></td>
+              <td>Booleano che specifica se mostrare i link "Prima" e "Ultima" nella paginazione.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Input() directionLinks: boolean</code></td>
+              <td>Booleano che specifica se mostrare i link "Successiva" e "Precedente" nella paginazione.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Output() detailsEmitter: EventEmitter&lt;any&gt;</code></td>
+              <td>EventEmitter per catturare le informazioni della riga cliccata.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Output() sortableEmitter: EventEmitter&lt;SortEvent&gt;</code></td>
+              <td>EventEmitter per catturare le informazioni sull'intestazione della colonna cliccata e sull'ordine da
+                applicare.
+              </td>
+            </tr>
+            <tr>
+              <td><code>&#64;Output() changePageEmitter: EventEmitter&lt;number&gt;</code></td>
+              <td>EventEmitter per catturare il numero di pagina selezionato.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Output() selectEmitter: EventEmitter&lt;number&gt;</code></td>
+              <td>EventEmitter per catturare la selezione di un elemento.</td>
+            </tr>
+            <tr>
+              <td><code>&#64;Output() detailsUpdate: EventEmitter&lt;any&gt;</code></td>
+              <td>EventEmitter per aggiornare i dettagli.</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Classi</h3>
+        <hr>
+        <div class="container">
+          <div>
+            <span>Interfaccia di Utility per la gestione della dirazione dell'ordinamento nella tabella</span>
+            <pre class="m-0 p-0">
+            <code [highlight]="exportSortDirection" class="border rounded w-auto" language="typescript">
+            </code>
+          </pre>
+          </div>
+          <div>
+          <span>Questa, invece, è un'interfaccia di Utility per la gestione dell'evento sort attraverso il click
+            sull'intestazione della tabella</span>
+            <pre class="m-0 p-0">
+            <code [highlight]="exportSortEvent" class="border rounded w-auto" language="typescript">
+            </code>
+          </pre>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <button ngbNavLink>Esempio</button>
+    <ng-template ngbNavContent>
+
+      <div class="container">
+        <twentyfive-accordion-table
+          [data]="data"
+          [headers]="headers"
+          [extras]="extras"
+          [singleOpen]="true"
+          [templateRef]="templateRef"
+          (detailsEmitter)="getDetails($event)"
+          [dataDetails]="dataDetails"
+          [isSortable]="false"
+          (sortableEmitter)="sortData($event)"
+          [page]="page"
+          [pageSize]="pageSize"
+          [maxSize]="maxSize"
+          [collectionSize]="collectionSize"
+          (changePageEmitter)="changePage($event)"
+          (selectEmitter)="selectSize($event)">
+        </twentyfive-accordion-table>
+      </div>
+
+
+      <!-- Template reference to display the information specified in deepDisplay. -->
+      <ng-template #templateRef let-detailLabel="detailLabel" let-detailInfo="detailInfo"
+                   let-getValueByPath="getValueByPath"
+                   let-isObject="isObject">
+        <p class="d-flex">
+          <span>{{detailLabel?.name}}</span> :
+          <show-data-object [dataDetails]="detailInfo[detailLabel?.value]" [deepDisplay]="deepDisplay"
+                            [getValueByPath]="getValueByPath" [isObject]="isObject"
+                            [loading]="loading"></show-data-object>
+        </p>
+      </ng-template>
+
+
+    </ng-template>
+  </ng-container>
+</nav>
+
+<div [ngbNavOutlet]="nav" class="container mt-2"></div>
