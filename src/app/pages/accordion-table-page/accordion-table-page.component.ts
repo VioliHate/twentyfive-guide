@@ -22,6 +22,7 @@ export class AccordionTablePageComponent implements OnInit{
   maxSize: number = 5;
   collectionSize!: number;
   loading: boolean = false;
+  isDisplayCode: boolean = false;
   installLib:any = 'npm i twentyfive-accordion-table';
   importModule:any = 'import { TwentyfiveAccordionTableModule } from \'twentyfive-accordion-table\';' +
     '\n' +
@@ -41,6 +42,26 @@ export class AccordionTablePageComponent implements OnInit{
     '    sortColumn: any;\n' +
     '    sortDirection: \'asc\' | \'desc\' | \'\';\n' +
     '}';
+
+
+    accordionSimpleHtml:any = `<twentyfive-accordion-table
+    *ngIf="!isDisplayCode"
+    [data]="data"
+    [headers]="headers"
+    [extras]="extras"
+    [singleOpen]="true"
+    [templateRef]="templateRef"
+    (detailsEmitter)="getDetails($event)"
+    [dataDetails]="dataDetails"
+    [isSortable]="false"
+    (sortableEmitter)="sortData($event)"
+    [page]="page"
+    [pageSize]="pageSize"
+    [maxSize]="maxSize"
+    [collectionSize]="collectionSize"
+    (changePageEmitter)="changePage($event)"
+    (selectEmitter)="selectSize($event)">
+  </twentyfive-accordion-table>`
 
 
   constructor(private userService: UserService) {

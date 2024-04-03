@@ -1,5 +1,5 @@
-<nav ngbNav #nav="ngbNav" class="nav-tabs btn-group">
-  <ng-container ngbNavItem>
+<nav ngbNav #nav1="ngbNav" class="nav-tabs btn-group">
+\  <ng-container ngbNavItem>
     <button ngbNavLink>Panoramica</button>
     <ng-template ngbNavContent>
       <p>
@@ -176,8 +176,22 @@
     <button ngbNavLink>Esempio</button>
     <ng-template ngbNavContent>
 
+
+
+    
       <div class="container">
+        <div class="d-flex">
+          <div class="me-auto p-2">
+            un caso di utilizzo del componente twentyfive-accordion-table
+          </div>
+          <div class="p-2">
+            <button type="button" class="btn" [ngClass]="isDisplayCode ? 'btn-dark':'btn-light'" data-toggle="button" aria-pressed="false" autocomplete="off" (click)="isDisplayCode=!isDisplayCode">
+              Codice
+            </button>
+          </div>
+        </div>
         <twentyfive-accordion-table
+          *ngIf="!isDisplayCode"
           [data]="data"
           [headers]="headers"
           [extras]="extras"
@@ -196,6 +210,29 @@
         </twentyfive-accordion-table>
       </div>
 
+      <div *ngIf="isDisplayCode">
+        <nav ngbNav #nav="ngbNav" class="nav-pills btn-group">
+          <ng-container ngbNavItem="top">
+          <button ngbNavLink>.html</button>
+          <ng-template ngbNavContent>
+            <pre class="m-0 p-0">
+              <code [highlight]="accordionSimpleHtml" class="border rounded w-100" language="html">
+              </code>
+            </pre>
+          </ng-template>
+        </ng-container>
+        <ng-container ngbNavItem="bottom">
+          <button ngbNavLink>.ts</button>
+          <ng-template ngbNavContent>
+          </ng-template>
+        </ng-container>
+      </nav>
+
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      </div>
+
+
+
 
       <!-- Template reference to display the information specified in deepDisplay. -->
       <ng-template #templateRef let-detailLabel="detailLabel" let-detailInfo="detailInfo"
@@ -208,10 +245,9 @@
                             [loading]="loading"></show-data-object>
         </p>
       </ng-template>
-
-
     </ng-template>
   </ng-container>
 </nav>
 
-<div [ngbNavOutlet]="nav" class="container mt-2"></div>
+<div [ngbNavOutlet]="nav1" class="container mt-2"></div>
+
